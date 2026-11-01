@@ -1,0 +1,117 @@
+<%- layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/listing-form.css">
+
+    <div class="row">
+        <div class="col-8 offset-2 mt-3 mb-3">
+            <h1>Edit your listing</h1>
+            <form action="/listings/<%= listing.id %>" method="PUT" class="needs-validation edit-form" novalidate enctype="multipart/form-data" data-id="<%= listing._id %>">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input id="title" value="<%= listing.title %>" name="listing[title]" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Title
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="des" class="form-label">Description</label>
+                    <textarea id="des" name="listing[description]" rows="4" columns="30" class="form-control" required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a short Description
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Categories</label>
+                    <div class="tags-container">
+                        <input type="checkbox" id="cat-trending" name="listing[category]" value="Trending" class="tag-checkbox" <%= listing.category.includes("Trending") ? "checked" : "" %>>
+                        <label for="cat-trending" class="tag">Trending</label>
+
+                        <input type="checkbox" id="cat-mountains" name="listing[category]" value="Mountains" class="tag-checkbox" <%= listing.category.includes("Mountains") ? "checked" : "" %>>
+                        <label for="cat-mountains" class="tag">Mountains</label>
+
+                        <input type="checkbox" id="cat-farms" name="listing[category]" value="Farms" class="tag-checkbox" <%= listing.category.includes("Farms") ? "checked" : "" %>>
+                        <label for="cat-farms" class="tag">Farms</label>
+
+                        <input type="checkbox" id="cat-beaches" name="listing[category]" value="Beaches" class="tag-checkbox" <%= listing.category.includes("Beaches") ? "checked" : "" %>>
+                        <label for="cat-beaches" class="tag">Beaches</label>
+
+                        <input type="checkbox" id="cat-iconic" name="listing[category]" value="Iconic Cities" class="tag-checkbox" <%= listing.category.includes("Iconic Cities") ? "checked" : "" %>>
+                        <label for="cat-iconic" class="tag">Iconic Cities</label>
+
+                        <input type="checkbox" id="cat-castles" name="listing[category]" value="Castles" class="tag-checkbox" <%= listing.category.includes("Castles") ? "checked" : "" %>>
+                        <label for="cat-castles" class="tag">Castles</label>
+
+                        <input type="checkbox" id="cat-pools" name="listing[category]" value="Amazing Pools" class="tag-checkbox" <%= listing.category.includes("Amazing Pools") ? "checked" : "" %>>
+                        <label for="cat-pools" class="tag">Amazing Pools</label>
+
+                        <input type="checkbox" id="cat-camping" name="listing[category]" value="Camping" class="tag-checkbox" <%= listing.category.includes("Camping") ? "checked" : "" %>>
+                        <label for="cat-camping" class="tag">Camping</label>
+
+                        <input type="checkbox" id="cat-arctic" name="listing[category]" value="Arctic" class="tag-checkbox" <%= listing.category.includes("Arctic") ? "checked" : "" %>>
+                        <label for="cat-arctic" class="tag">Arctic</label>
+
+                        <input type="checkbox" id="cat-nature" name="listing[category]" value="Nature" class="tag-checkbox" <%= listing.category.includes("Nature") ? "checked" : "" %>>
+                        <label for="cat-nature" class="tag">Nature</label>
+
+                        <input type="checkbox" id="cat-luxe" name="listing[category]" value="Luxe" class="tag-checkbox" <%= listing.category.includes("Luxe") ? "checked" : "" %>>
+                        <label for="cat-luxe" class="tag">Luxe</label>
+
+                        <input type="checkbox" id="cat-skiing" name="listing[category]" value="Skiing" class="tag-checkbox" <%= listing.category.includes("Skiing") ? "checked" : "" %>>
+                        <label for="cat-skiing" class="tag">Skiing</label>
+
+                        <input type="checkbox" id="cat-outdoor" name="listing[category]" value="Outdoor Adventure" class="tag-checkbox" <%= listing.category.includes("Outdoor Adventure") ? "checked" : "" %>>
+                        <label for="cat-outdoor" class="tag">Outdoor Adventure</label>
+
+                        <input type="checkbox" id="cat-games" name="listing[category]" value="Games" class="tag-checkbox" <%= listing.category.includes("Games") ? "checked" : "" %>>
+                        <label for="cat-games" class="tag">Games</label>
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid Location
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    Current listing image <br>
+                    <img class="previewImage" src="<%= originalImageUrl %>">
+                </div>
+                <div class="mb-3">
+                    <label for="url" class="form-label"> Upload new image</label>
+                    <input id="url" name="listing[image]" class="form-control" type="file">
+                    <div class="invalid-feedback">
+                        Please enter a valid image url
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Tariff per day</label>
+                        <input id="price" value="<%= listing.price %>" type="number" name="listing[price]" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Tariff
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input id="country" value="<%= listing.country %>" name="listing[country]" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Country name
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input id="location" value="<%= listing.location %>" name="listing[location]" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Location
+                    </div>
+                </div>
+                <% console.log("submit button reached"); %>
+                <button class="btn btn-dark edit-btn mt-3">Update</button>
+            </form>
+        </div>
+    </div>
+
+<script src="/javascript/edit.js"></script>

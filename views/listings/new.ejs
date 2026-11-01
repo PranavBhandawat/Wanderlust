@@ -1,0 +1,123 @@
+<%- layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/listing-form.css">
+
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <h3><b>Create a New Listing</b></h3>
+            <form action="/listings" method="POST" class="mt-3 mb-3 needs-validation" novalidate enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input id="title" placeholder="Enter title" name="listing[title]" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Title
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="des" class="form-label">Description</label>
+                    <textarea id="des" name="listing[description]" rows="4" columns="30" plcaeholder="Enter description" class="form-control" required> </textarea>
+                    <div class="invalid-feedback">
+                        Please enter a short Description
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Categories</label>
+                    <div class="tags-container">
+                        <input type="checkbox" id="cat-trending" name="listing[category]" value="Trending" class="tag-checkbox">
+                        <label for="cat-trending" class="tag">Trending</label>
+
+                        <input type="checkbox" id="cat-mountains" name="listing[category]" value="Mountains" class="tag-checkbox">
+                        <label for="cat-mountains" class="tag">Mountains</label>
+
+                        <input type="checkbox" id="cat-farms" name="listing[category]" value="Farms" class="tag-checkbox">
+                        <label for="cat-farms" class="tag">Farms</label>
+
+                        <input type="checkbox" id="cat-beaches" name="listing[category]" value="Beaches" class="tag-checkbox">
+                        <label for="cat-beaches" class="tag">Beaches</label>
+
+                        <input type="checkbox" id="cat-iconic" name="listing[category]" value="Iconic Cities" class="tag-checkbox">
+                        <label for="cat-iconic" class="tag">Iconic Cities</label>
+
+                        <input type="checkbox" id="cat-castles" name="listing[category]" value="Castles" class="tag-checkbox">
+                        <label for="cat-castles" class="tag">Castles</label>
+
+                        <input type="checkbox" id="cat-pools" name="listing[category]" value="Amazing Pools" class="tag-checkbox">
+                        <label for="cat-pools" class="tag">Amazing Pools</label>
+
+                        <input type="checkbox" id="cat-camping" name="listing[category]" value="Camping" class="tag-checkbox">
+                        <label for="cat-camping" class="tag">Camping</label>
+
+                        <input type="checkbox" id="cat-arctic" name="listing[category]" value="Arctic" class="tag-checkbox">
+                        <label for="cat-arctic" class="tag">Arctic</label>
+
+                        <input type="checkbox" id="cat-nature" name="listing[category]" value="Nature" class="tag-checkbox">
+                        <label for="cat-nature" class="tag">Nature</label>
+
+                        <input type="checkbox" id="cat-luxe" name="listing[category]" value="Luxe" class="tag-checkbox">
+                        <label for="cat-luxe" class="tag">Luxe</label>
+
+                        <input type="checkbox" id="cat-skiing" name="listing[category]" value="Skiing" class="tag-checkbox">
+                        <label for="cat-skiing" class="tag">Skiing</label>
+
+                        <input type="checkbox" id="cat-outdoor" name="listing[category]" value="Outdoor Adventure" class="tag-checkbox">
+                        <label for="cat-outdoor" class="tag">Outdoor Adventure</label>
+
+                        <input type="checkbox" id="cat-games" name="listing[category]" value="Games" class="tag-checkbox">
+                        <label for="cat-games" class="tag">Games</label>
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid Location
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="url" class="form-label">Upload Listing Image</label>
+                    <input id="url" name="listing[image]" class="form-control" type="file">
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Tariff per day</label>
+                        <input id="price" placeholder="1200" name="listing[price]" type="number" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Tariff
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input id="country" placeholder="India" name="listing[country]" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Country name
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input id="location" placeholder="Mumbai, Maharashtra" name="listing[location]" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid Location
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                
+                <button class="btn btn-dark add-btn mt-3">Submit</button>
+            </form>
+        </div>
+    </div>

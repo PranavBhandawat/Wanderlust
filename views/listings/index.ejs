@@ -1,0 +1,140 @@
+<%- layout("/layouts/boilerplate") %>
+
+    <link rel="stylesheet" href="/css/index.css">
+
+    <div id="filters">
+        <button class="filter-arrow" id="left-arrow">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+        </button>
+
+        <div id="filter-list">
+            <a href="/listings?category=Trending" class="filter mt-3 <%= category === 'Trending' ? 'active' : '' %>">
+                <i class="fa-solid fa-fire"></i>
+                <p>Trending</p>
+            </a>
+
+            <a href="/listings?category=Mountains" class="filter mt-3 <%= category === 'Mountains' ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain"></i>
+                <p>Mountains</p>
+            </a>
+
+            <a href="/listings?category=Farms" class="filter mt-3 <%= category === 'Farms' ? 'active' : '' %>">
+                <i class="fa-solid fa-cow"></i>
+                <p>Farms</p>
+            </a>
+
+            <a href="/listings?category=Beaches" class="filter mt-3 <%= category === 'Beaches' ? 'active' : '' %>">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <p>Beaches</p>
+            </a>
+
+            <a href="/listings?category=Iconic Cities" class="filter mt-3 <%= category === 'Iconic Cities' ? 'active' : '' %>">
+                <i class="fa-solid fa-mountain-city"></i>
+                <p>Iconic Cities</p>
+            </a>
+
+            <a href="/listings?category=Castles" class="filter mt-3 <%= category === 'Castles' ? 'active' : '' %>">
+                <i class="fa-brands fa-fort-awesome"></i>
+                <p>Castles</p>
+            </a>
+
+            <a href="/listings?category=Amazing Pools" class="filter mt-3 <%= category === 'Amazing Pools' ? 'active' : '' %>">
+                <i class="fa-solid fa-person-swimming"></i>
+                <p>Amazing Pools</p>
+            </a>
+
+            <a href="/listings?category=Camping" class="filter mt-3 <%= category === 'Camping' ? 'active' : '' %>">
+                <i class="fa-solid fa-tent"></i>
+                <p>Camping</p>
+            </a>
+
+            <a href="/listings?category=Arctic" class="filter mt-3 <%= category === 'Arctic' ? 'active' : '' %>">
+                <i class="fa-solid fa-snowflake"></i>
+                <p>Arctic</p>
+            </a>
+
+            <a href="/listings?category=Nature" class="filter mt-3 <%= category === 'Nature' ? 'active' : '' %>">
+                <i class="fa-solid fa-tree"></i>
+                <p>Nature</p>
+            </a>
+
+            <a href="/listings?category=Luxe" class="filter mt-3 <%= category === 'Luxe' ? 'active' : '' %>">
+                <i class="fa-solid fa-crown"></i>
+                <p>Luxe</p>
+            </a>
+            
+            <a href="/listings?category=Skiing" class="filter mt-3 <%= category === 'Skiing' ? 'active' : '' %>">
+                <i class="fa-solid fa-person-skiing"></i>
+                <p>Skiing</p>
+            </a>
+
+            <a href="/listings?category=Outdoor Adventure" class="filter mt-3 <%= category === 'Outdoor Adventure' ? 'active' : '' %>">
+                <i class="fa-solid fa-person-hiking"></i>
+                <p>Outdoor Adventure</p>
+            </a>
+
+            <a href="/listings?category=Games" class="filter mt-3 <%= category === 'Games' ? 'active' : '' %>">
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                <p>Games</p>
+            </a>
+
+            <a href="/listings?category=Boating" class="filter mt-3 <%= category === 'Boating' ? 'active' : '' %>">
+                <i class="fa-solid fa-ship"></i>
+                <p>Boating</p>
+            </a>
+        </div>
+
+        <button class="filter-arrow" id="right-arrow">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+        </button>
+
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label d-none d-md-block" for="switchCheckDefault">
+                    Display total after taxes
+                </label>
+                <label class="form-check-label d-md-none" for="switchCheckDefault">
+                    Show taxes
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <% if(typeof searchResult !== "undefined" && searchResult){ %>
+        <div class="card alert alert-info alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="card-body">
+                <h5 class="card-title">Search result</h5>
+                <hr>
+                <p class="card-text clamped" id="conciergeText"><%= searchResult %></p>
+                <span class="concierge-toggle" id="conciergeToggle">Show more</span>
+            </div>
+        </div>
+    <% } %>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% if(allListings && allListings.length){ %>
+            <% for(let listing of allListings){ %>
+                <a href="/listings/<%= listing.id %>" class="listing-link">
+                    <div class="card col listing-card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %></b>, <%= listing.country %> <br>
+                            &#8377; <%= listing.price.toLocaleString("en-IN") %>/night
+                            <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
+                        </p>
+                    </div>
+                    </div>
+                </a>
+            <% } %>                                                                                     
+        <% } else { %>
+                <div class="flexbox-container col-12">
+                    <p class="text-body-secondary flexbox-element"> No listings in this category yet! </p>
+                </div>
+        <% } %>
+    </div>
+
+<script src="/javascript/index.js"></script>
