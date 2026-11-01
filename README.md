@@ -8,13 +8,13 @@
 
 ---
 
-## ✨ Overview
+## Overview
 
 Wanderlust is a server-rendered web application where travelers can browse property listings, view them on an interactive map, read and write reviews, and create their own listings with image uploads. Beyond standard search, it includes a **Retrieval-Augmented Generation (RAG) concierge**: type something like *"a cozy mountain cabin in India"* and the app semantically ranks matching listings and generates a natural-language recommendation.
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Full CRUD for listings** — create, read, update, and delete stays, with image uploads handled via Cloudinary.
 - **Authentication & authorization** — sign up / log in with Passport.js; only a listing's owner can edit or delete it, and only logged-in users can review.
@@ -26,7 +26,7 @@ Wanderlust is a server-rendered web application where travelers can browse prope
 
 ---
 
-## 🤖 The AI Concierge (RAG) — How It Works
+## The AI Concierge (RAG) — How It Works
 
 The search feature combines classic retrieval with a language model:
 
@@ -38,7 +38,7 @@ This design keeps costs low — only the low-volume generation step hits a paid 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technologies |
 |--|--|
@@ -55,7 +55,7 @@ This design keeps costs low — only the low-volume generation step hits a paid 
 
 ---
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -115,7 +115,7 @@ Visit **http://localhost:8080/listings** in your browser.
 
 ---
 
-## 🐳 Running with Docker
+## Running with Docker
 
 ```bash
 # Build and run with Docker Compose
@@ -126,7 +126,7 @@ The app is containerized via the included `Dockerfile` and deployed to **Render*
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Wanderlust/
@@ -145,7 +145,7 @@ Wanderlust/
 
 ---
 
-## 🔮 Roadmap
+## Roadmap
 
 - [ ] Google OAuth sign-in
 - [ ] Payment integration (Stripe)
@@ -154,13 +154,13 @@ Wanderlust/
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 Built as a major project while following the **Apna College** Full-Stack Web Development curriculum, extended with an **original RAG-based AI search feature**, **automated testing**, **tag-based filters**, **authorization-based ability to post reviews**, **various UI-based changes etc**.
 
 ---
 
-## 👤 Author
+## Author
 
 **Pranav Bhandawat**
 B.Sc. Computer Science — IU International University of Applied Sciences
