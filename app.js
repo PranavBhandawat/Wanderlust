@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 const store = MongoStore.create({
     mongoUrl: dbUrl, //whichever db is passed here either the local db (MONGO_URL) or mongo atlas' (dbUrl) that will be used
     crypto: {
-        secret: process.env.SECRET;
+        secret: process.env.SECRET,
     },
     touchAfter: 24*3600, //touchAfter duration is provided in seconds
 });
