@@ -163,5 +163,3 @@ Built as a major project while following the **Apna College** Full-Stack Web Dev
 ## Author
 
 **Pranav Bhandawat**
-B.Sc. Computer Science — IU International University of Applied Sciences
-GitHub: [@PranavBhandawat](https://github.com/PranavBhandawat)
