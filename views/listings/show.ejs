@@ -3,15 +3,18 @@
 <link rel="stylesheet" href="/css/show.css">
 
 <script>
-    // const mapToken = "<%= process.env.MAP_TOKEN %>";
-    // const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
-    // const listing = <%- JSON.stringify(listing) %>;
+    const mapToken = "<%= process.env.MAP_TOKEN %>";
+    const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
+    const listing = <%- JSON.stringify(listing) %>;
 </script>
 
     <div class="row mt-3">
         <div class="col-12 col-md-8 offset-md-3">
             <b><h3><%= listing.title %></h3></b>
         </div>
+
+        <input id="checkin" placeholder="Check-in" readonly />
+        <input id="checkout" placeholder="Check-out" readonly />
 
         <div class="card col-12 col-md-6 offset-md-3 show-card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing-image">
@@ -136,3 +139,15 @@
 
 <script src="/javascript/map.js"></script>
 <script src="/javascript/show.js"></script>
+<script>
+    const picker = new Litepicker({
+        element: document.getElementById('checkin'),
+        elementEnd: document.getElementById('checkout'),   
+        inlineMode: false, 
+        singleMode: false,                                 
+        minDate: new Date(),                               // no past dates
+        numberOfMonths: 1,
+        numberOfColumns: 1,
+        tooltipText: { one: 'night', other: 'nights' },    // shows "3 nights"
+    });
+</script>
