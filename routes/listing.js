@@ -25,4 +25,7 @@ router
 //Edit Route
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderEditForm));
 
+//Booking
+router.get("/:id/booking", isLoggedIn, wrapAsync(listingController.renderBookingSummary));
+
 module.exports = router;

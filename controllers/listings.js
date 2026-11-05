@@ -1,4 +1,5 @@
 const Listing = require("../models/listing.js");
+const User = require("../models/user.js");
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
 
@@ -130,3 +131,16 @@ module.exports.destroyListing = async (req, res) => {
     req.flash("success", "Listing Deleted!");
     res.json({ redirect: "/listings" });  
 };
+
+module.exports.renderBookingSummary = async (req, res) => {
+    let { id } = req.params;
+    let userId = req.user._id;
+    console.log(userId);
+
+    let listing = await Listing.findById(id);
+    let user = await User.findById(userId);
+    let bookingDates = req.query;
+    // console.log(req.user);
+    // console.log(`listing: ${id}`);
+    res.render("./listings/booking.ejs", { listing, user, bookingDates});
+}

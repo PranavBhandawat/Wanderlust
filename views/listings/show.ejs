@@ -13,8 +13,11 @@
             <b><h3><%= listing.title %></h3></b>
         </div>
 
-        <input id="checkin" placeholder="Check-in" readonly />
-        <input id="checkout" placeholder="Check-out" readonly />
+        <form action="/listings/<%= listing.id %>/booking" method="GET">
+            <input id="checkin" name="checkin" placeholder="Check-in" readonly />
+            <input id="checkout" name="checkout" placeholder="Check-out" readonly />
+            <button class="btn">Book</button>
+        </form>
 
         <div class="card col-12 col-md-6 offset-md-3 show-card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing-image">
@@ -145,7 +148,8 @@
         elementEnd: document.getElementById('checkout'),   
         inlineMode: false, 
         singleMode: false,                                 
-        minDate: new Date(),                               // no past dates
+        minDate: new Date(), 
+        format: 'YYYY-MM-DD',                              // no past dates
         numberOfMonths: 1,
         numberOfColumns: 1,
         tooltipText: { one: 'night', other: 'nights' },    // shows "3 nights"
